@@ -124,7 +124,10 @@
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\fonts\cupiddelocke-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\Love-Binoculars-Small.jpg" />
+    <Content Include="Content\img\Love-Binoculars.jpg" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Global.asax" />
@@ -145,9 +148,12 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\cupiddelocke-webfont.eot" />
+    <Content Include="Content\fonts\cupiddelocke-webfont.ttf" />
+    <Content Include="Content\fonts\cupiddelocke-webfont.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Start\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
