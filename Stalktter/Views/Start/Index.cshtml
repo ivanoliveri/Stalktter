@@ -1,0 +1,64 @@
+﻿@model StartViewModel
+
+<html>
+	<head>
+		<title>Stalktter</title>
+		<link rel="stylesheet" type="text/css" href="../../Content/css/bootstrap.css" />
+		<style type="text/css">
+            @@font-face {
+            font-family: 'Cupid de Locke';
+            src: url('../../Content/fonts/cupiddelocke-webfont.eot');
+            src: url('../../Content/fonts/cupiddelocke-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('../../Content/fonts/cupiddelocke-webfont.woff') format('woff'),
+                 url('../../Content/fonts/cupiddelocke-webfont.ttf') format('truetype'),
+                 url('../../Content/fonts/cupiddelocke-webfont.svg#cupid_de_lockeregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            }
+			#target-container {
+				padding-top:20%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row clearfix">
+                <div style="padding-top:2%">
+                    <center>
+                        <img src="../../Content/img/Love-Binoculars-Small.jpg" alt="..." class="img-rounded"/>
+                        <p style="font-family:Cupid de Locke;font-size:5em">Stalktter</p>
+                    </center>
+                </div>
+				<div class="col-md-3 column">
+				</div>
+				<div class="col-md-6 column" >
+                    <div id="target-container">                        
+                        @using (Html.BeginForm("Stalk", "Start", FormMethod.Post, new { @class = "form-horizontal" })){
+                            <div class="form-group">
+							    <label for="twitter-username-target" class="col-sm-2 control-label">Instagram</label>
+							    <div class="col-sm-10">
+                                    @Html.TextBoxFor(model => model.instagramUsername, new {@id="twitter-username-target", @class = "form-control"})
+							    </div>
+						    </div>
+						    <div class="form-group">
+							    <label for="instagram-username-target" class="col-sm-2 control-label">Twitter</label>
+							    <div class="col-sm-10">
+                                    @Html.TextBoxFor(model => model.twitterUsername, new { @id="instagram-username-target", @class = "form-control"})
+							    </div>
+						    </div>
+						    <div class="form-group">
+							    <div class="col-sm-offset-2 col-sm-10">
+									    <button type="submit" class="btn btn-default">Stalk</button>
+							    </div>
+						    </div>
+                            }
+                        </div>
+					</div>	
+
+					<div class="col-md-3 column">
+					</div>
+				</div>
+			</div>
+		<script type="text/javascript" src="../../Content/js/bootstrap.js"></script>
+	</body>
+</html>
