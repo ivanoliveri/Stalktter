@@ -3,75 +3,71 @@
 <html>
 	<head>
 		<title>Stalktter</title>
-		<link rel="stylesheet" type="text/css" href="../../Content/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/css/bootstrap.css" />		
 	</head>
 	<body>
 		<div class="container">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
 					<ul class="nav nav-tabs">
-						<li class="active">
-							<a href="#">Home</a>
+						<li id="Twitter">
+							<a >Twitter</a>
 						</li>
-						<li>
-							<a href="#">Profile</a>
+						<li id="Instagram">
+							<a>Instagram</a>
 						</li>
-						<li class="disabled">
-							<a href="#">Messages</a>
-						</li>
-						<li class="dropdown pull-right">
-							 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-							</ul>
+						<li id="Map" >
+							<a>Map</a>
 						</li>
 					</ul>
 					<div class="row" style="margin-top:15px;">
-                    @foreach (LinqToTwitter.Status @tweet in @Model.tweets)
-                    {
-						<div class="col-md-4">
-							<div class="thumbnail">
-								<div class="caption" style="height:150px;">                                    
-                                    <h3>@tweet.CreatedAt.Date</h3>
-                                    <p>
-                                        <img style="float:left" src=@Model.twitterProfilePicture />
-                                        <h6>@tweet.Text</h6>
-                                    </p>
-								</div>
-							</div>
-						</div>
-                    }
-					</div>
-                    <div class="row" style="margin-top:15px;">
-                    @foreach (string @photo in @Model.instagramPhotoLinks)
-                    {
-						<div class="col-md-4">
-							<div class="thumbnail">
-								<div class="caption" style="height:315px;"> 
-                                    <p>
-                                        <img src=@photo />
-                                    </p>
-								</div>
-							</div>
-						</div>
-                    }
+                    <div id="mainContainer">
+                        @foreach (LinqToTwitter.Status @tweet in @Model.tweets)
+                        {
+						    <div class="col-md-4">
+							    <div class="thumbnail">
+								    <div class="caption" style="height:150px;">                                    
+                                        <h3>@tweet.CreatedAt.Date</h3>
+                                        <p>
+                                            <img style="float:left" src=@Model.twitterProfilePicture />
+                                            <h6>@tweet.Text</h6>
+                                        </p>
+								    </div>
+							    </div>
+						    </div>
+                        }
+                        </div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="../../Content/js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../Content/js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../Content/js/jquery-1.6.4.js"></script>
+        <script type="text/javascript"> 
+            $(document).ready(function () {
+                $("#Instagram").live('click', function (e) {
+                    $.get('@Html.Raw(Url.Action("IndexInstagram","Home", new { instagramUsername = @Model.instagramUsername, twitterUsername = @Model.twitterUsername } ))', function (data) {
+                        $('#mainContainer').replaceWith(data);
+                    }); 
+                });
+                $("#Twitter").live('click', function (e) {
+                    $.get('@Html.Raw(Url.Action("IndexTwitter", "Home", new { instagramUsername = @Model.instagramUsername, twitterUsername = @Model.twitterUsername }))', function (data) {
+                        $('#mainContainer').replaceWith(data);
+                    }); 
+                });
+                $("#Map").live('click', function (e) {
+                    alert('');
+                });
+                $('#Instagram').hover(function () {
+                    $(this).css('cursor', 'pointer');
+                });
+                $('#Twitter').hover(function () {
+                    $(this).css('cursor', 'pointer');
+                }); 
+                $('#Map').hover(function () {
+                    $(this).css('cursor', 'pointer');
+                });
+            });
+        </script>
 	</body>
 </html>

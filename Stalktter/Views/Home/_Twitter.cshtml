@@ -1,0 +1,17 @@
+﻿@model HomeViewModel
+<div id="mainContainer">
+    @foreach (LinqToTwitter.Status @tweet in @Model.tweets)
+    {
+	    <div class="col-md-4">
+		    <div class="thumbnail">
+			    <div class="caption" style="height:150px;">                                    
+                    <h3>@tweet.CreatedAt.Date</h3>
+                    <p> 
+                        <img style="float:left" src=@Model.twitterProfilePicture />
+                        <h6>@tweet.Text</h6>
+                    </p>
+			    </div>
+		    </div>
+	    </div>
+    }
+</div>

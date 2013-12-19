@@ -5,6 +5,10 @@ using LinqToTwitter;
 
 public class HomeViewModel{
 
+    public string twitterUsername { set; get; }
+
+    public string instagramUsername { set; get; }
+
     public string twitterProfilePicture {set;get;}
 
     public List<LinqToTwitter.Status> tweets {set;get;}

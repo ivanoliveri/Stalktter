@@ -1,0 +1,16 @@
+﻿@model HomeViewModel
+
+<div id="mainContainer">
+    @foreach (string @photo in @Model.instagramPhotoLinks)
+    {
+        <div class="col-md-4">
+	        <div class="thumbnail">
+		        <div class="caption" style="height:315px;"> 
+                    <p>
+                        <img src=@photo />
+                    </p>
+		        </div>
+	        </div>
+        </div>
+    }
+</div>
